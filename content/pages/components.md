@@ -23,10 +23,9 @@ section2: |-
   <iframe width="560" height="315"
   src="https://www.youtube.com/embed/Js00yn142ic" frameborder="0"
   allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
 video: 'https://ucarecdn.com/e6979298-66d6-4245-b496-6e5a5d507135/'
 videoPoster: 'https://ucarecdn.com/69ba14a8-6481-4671-abb6-0e6f0d9c3e46/'
-videoTitle: Also background videos, with poster image & title overlay.
+videoTitle: 'Also background videos, with poster image & title overlay.'
 accordion:
   - description: Taciti lorem tempor quam vestibulum dis habitasse
     title: Taciti lorem
@@ -46,7 +45,12 @@ gallery:
   - alt: yellow ice cream
     image: 'https://ucarecdn.com/83485d70-1552-4c97-b237-22330fb56a1e/'
     title: Yellow Ice Cream
+  - alt: ddsvsdv
+    image: 'https://ucarecdn.com/d9ecde7e-d5df-4617-b5c6-cbc1109bcd8c/'
+  - alt: vdvsdv
+    image: 'https://ucarecdn.com/1cecce58-065f-42f6-859d-548c93553272/'
 meta:
   description: This is a meta description.
   title: Components Page
 ---
+
