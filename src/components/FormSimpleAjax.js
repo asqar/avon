@@ -5,14 +5,19 @@ import { serialize } from 'dom-form-serializer'
 
 import './Form.css'
 
+let gCaptchaKey = ''
+if (process.env.NETLIFY_CAPTCHA_KEY) {
+  gCaptchaKey = process.env.NETLIFY_CAPTCHA_KEY
+}
+
 class Form extends React.Component {
   static defaultProps = {
-    name: 'Simple Form Ajax',
+    name: 'Форма',
     subject: '', // optional subject of the notification email
     action: '',
-    successMessage: 'Thanks for your enquiry, we will get back to you soon',
+    successMessage: 'Спасибо за обращение. Вскоре мы с Вами свяжемся.',
     errorMessage:
-      'There is a problem, your message has not been sent, please try contacting us via email'
+      'Что-то пошло не так. Ваше сообщение не было отправлено. Пожалуйста, попробуйте связаться с нами по электронной почте.'
   }
 
   state = {
@@ -77,23 +82,24 @@ class Form extends React.Component {
               <input
                 className="Form--Input Form--InputText"
                 type="text"
-                placeholder="Firstname"
+                placeholder="Имя"
                 name="firstname"
                 required
               />
-              <span>Firstname</span>
+              <span>Имя</span>
             </label>
             <label className="Form--Label">
               <input
                 className="Form--Input Form--InputText"
                 type="text"
-                placeholder="Lastname"
+                placeholder="Фамилия"
                 name="lastname"
                 required
               />
-              <span>Lastname</span>
+              <span>Фамилия</span>
             </label>
           </div>
+          <span>Опыт работы представителем Avon?</span>
           <fieldset>
             <label className="Form--Label Form--Radio">
               <input
@@ -103,7 +109,7 @@ class Form extends React.Component {
                 value="male"
                 defaultChecked
               />
-              <span>Male</span>
+              <span>Нет опыта</span>
             </label>
             <label className="Form--Label Form--Radio">
               <input
@@ -112,7 +118,7 @@ class Form extends React.Component {
                 name="gender"
                 value="female"
               />
-              <span>Female</span>
+              <span>Есть опыт</span>
             </label>
           </fieldset>
           <label className="Form--Label">
@@ -123,7 +129,7 @@ class Form extends React.Component {
               name="emailAddress"
               required
             />
-            <span>Email address</span>
+            <span>Электронный адрес</span>
           </label>
           <label className="Form--Label has-arrow">
             <select
@@ -133,22 +139,22 @@ class Form extends React.Component {
               required
             >
               <option disabled hidden>
-                Type of Enquiry
+                Тема
               </option>
-              <option>Need to know more</option>
-              <option>Found a bug</option>
-              <option>Want to say hello</option>
+              <option>Хочу купить продукцию</option>
+              <option>Хочу узнать поподробнее об  Avon</option>
+              <option>Хочу в команду</option>
             </select>
           </label>
           <label className="Form--Label">
             <textarea
               className="Form--Input Form--Textarea Form--InputText"
-              placeholder="Message"
+              placeholder="Текст"
               name="message"
               rows="10"
               required
             />
-            <span>Message</span>
+            <span>Текст</span>
           </label>
           <label className="Form--Label Form-Checkbox">
             <input
@@ -156,18 +162,18 @@ class Form extends React.Component {
               name="newsletter"
               type="checkbox"
             />
-            <span>Get news updates</span>
+            <span>Подписаться на новости</span>
           </label>
           <div
             className="g-recaptcha"
-            data-sitekey="6LfKN3kUAAAAAGIM1CbXmaRZx3LIh_W2twn1tzkA"
+            data-sitekey={gCaptchaKey}
           />
           {!!subject && <input type="hidden" name="subject" value={subject} />}
           <input type="hidden" name="form-name" value={name} />
           <input
             className="Button Form--SubmitButton"
             type="submit"
-            value="Enquire"
+            value="Отправить"
             disabled={this.state.disabled}
           />
         </form>

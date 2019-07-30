@@ -1,30 +1,17 @@
 ---
-template: HomePage
+template: ContactPage
 slug: ''
-title: Yellowcake
-featuredImage: 'https://ucarecdn.com/159203d3-881d-4218-baa1-ca4427b48d0d/'
-subtitle: ' Welcome to the ultimate Gatsby and Netlify starter project.'
+title: Регистрация Avon
+featuredImage: 'https://ucarecdn.com/609959a6-001d-4201-9459-f37f38c55707/'
+subtitle: ' Здесь Вы можете зарегистрироваться в команду Avon.'
+address: 'Петропавловск, Казахстан'
+phone: +7 702 xxx xx 00
+email: b.zxxxxx@mail.ru
+locations:
+  - lat: '54.864961'
+    lng: '69.148632'
+    mapLink: ''
 meta:
-  description: This is a meta description.
-  title: The Ultimate Gatsby Starter
+  description: Регистрация Эйвон онлайн в Казахстане и России, форма, скидки, каталоги.
+  title: Зарегистрироваться в команде Avon в Петропавловске и Нур-Султане (Астане)
 ---
-Yellowcake is an opinionated starter project created by [Thrive Digital](https://thriveweb.com.au/) a [Gold Coast Web Design](https://thriveweb.com.au/) studio. to help you create lightening fast websites with [Gatsby](https://gatsbyjs.org) and [Netlify CMS](https://netlifycms.org).
-
-View the [project overview](https://thriveweb.com.au/the-lab/yellowcake-gatsby-react-js-starter-project/) and the [docs](https://github.com/thriveweb/yellowcake/blob/master/README.md).
-
-# Features
-
-* **[Gatsby](https://gatsbyjs.org)** static site generator
-* **[Netlify CMS](https://github.com/netlify/netlify-cms)** for content management
-* Dynamic menus and forms
-* **[Mailchimp](http://mailchimp.com)** and **[Uploadcare](https://uploadcare.com)** integrations
-* Fully responsive layout for mobile and widescreen browsing
-* Blog searching and paging functionality
-* Seamless image and content sliders
-* Instagram feed integration
-
-## Get started
-
-View the [Netlify CMS Docs](https://www.netlifycms.org/docs/) and the [Netlify CMS Repo](https://github.com/netlify/netlify-cms).
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/thriveweb/yellowcake&stack=cms)
