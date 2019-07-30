@@ -5,14 +5,14 @@ import './InstagramFeed.css'
 
 export default class InstagramFeed extends Component {
   static defaultProps = {
-    instagramUrl: 'https://instagram.com/kosmetiki_avon.2019/',
+    datasetId: 'N7uzMTiEA3P4899Ku',
     count: 7
   }
 
   state = {
     mounted: false,
     posts: [],
-    instagramUsername: ''
+    datasetId: ''
   }
 
   clearStorage() {
@@ -28,41 +28,37 @@ export default class InstagramFeed extends Component {
 
   componentDidMount() {
     this.clearStorage()
-    const parsed = this.parseInstagramUrl(this.props.instagramUrl)
-    const instagramUsername = parsed ? parsed[1] : ''
+    const datasetId = this.props.datasetId ? this.props.datasetId : ''
 
-    if (!this.state.mounted && instagramUsername) {
-      this.fetchInstagram()
+    if (!this.state.mounted && datasetId) {
+      this.fetchInstagram(datasetId)
       this.setState({
         mounted: true,
-        instagramUsername
+        datasetId
       })
     }
   }
 
-  parseInstagramUrl = string =>
-    string.match(/(?:https?:\/\/)(?:www.)?instagram.com\/([\w\d_-]+)\/?/i)
+  fetchInstagram = (datasetId) => {
+    let instaFeed = localStorage.getItem('instaFeed')
+      ? localStorage.getItem('instaFeed')
+      : []
 
-  fetchInstagram = () => {
-    let insaFeed = localStorage.getItem('insaFeed')
-      ? localStorage.getItem('insaFeed')
-      : false
-
-    if (!insaFeed) {
+    if (!Array.isArray(instaFeed) || !instaFeed.length) {
       typeof window !== 'undefined' &&
-        fetch(`https://www.instagram.com/kosmetiki_avon.2019/`)
+        fetch(`https://api.apify.com/v2/datasets/${datasetId}/items?format=json&clean=1`)
           .then(res => res.json())
           .then(data => {
-            insaFeed = data && data.items ? data.items : []
-            localStorage.setItem('insaFeed', JSON.stringify(insaFeed))
+            instaFeed = data
+            localStorage.setItem('instaFeed', JSON.stringify(instaFeed))
             this.setState({
-              posts: insaFeed
+              posts: instaFeed
             })
           })
           .catch(err => console.error(err))
     }
     this.setState({
-      posts: JSON.parse(insaFeed)
+      posts: JSON.parse(instaFeed)
     })
   }
 
@@ -86,10 +82,9 @@ export default class InstagramFeed extends Component {
       <div className="InstagramFeed">
         {this.state.posts.slice(0, this.props.count).map(post => (
           <Post
-            key={post.code}
-            src={post.display_src}
-            code={post.code}
-            caption={post.caption}
+            key={post.url}
+            url={post.url}
+            imageUrl={post.imageUrl}
           />
         ))}
       </div>
@@ -97,14 +92,14 @@ export default class InstagramFeed extends Component {
   }
 }
 
-const Post = ({ src, code }) => (
+const Post = ({ url, imageUrl }) => (
   <a
     className="InstagramFeed--EmptyPost InstagramFeed--EmptyPost-loaded"
-    href={`https://instagram.com/p/${code}`}
+    href={imageUrl}
     rel="noopener noreferrer"
     target="_blank"
     aria-label="Instagram Post Link"
   >
-    <Image background src={src} lazy alt="instagram image" />
+    <Image background src={imageUrl} lazy alt="instagram image" />
   </a>
 )

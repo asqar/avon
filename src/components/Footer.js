@@ -4,12 +4,11 @@ import './Footer.css'
 
 export default () => (
   <div>
+    <br />
     <h2 className="taCenter">
     Связаться со мной в Instagram:{' '}
-      <a href="https://instagram.com/asqar/">@asqar</a>
+      <a href="https://instagram.com/zbakirova/">@zbakirova</a>
     </h2>
-    <br />
-    <InstagramFeed count="8" />
     <footer className="footer">
       <div className="container taCenter">
         <span>

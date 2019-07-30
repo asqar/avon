@@ -8,6 +8,7 @@ import { ContactPageTemplate } from '../templates/ContactPage'
 import { DefaultPageTemplate } from '../templates/DefaultPage'
 import { BlogIndexTemplate } from '../templates/BlogIndex'
 import { SinglePostTemplate } from '../templates/SinglePost'
+import { CarouselPageTemplate } from '../templates/CarouselPage'
 
 if (
   window.location.hostname === 'localhost' &&
@@ -37,4 +38,7 @@ CMS.registerPreviewTemplate('blog-page', ({ entry }) => (
 ))
 CMS.registerPreviewTemplate('posts', ({ entry }) => (
   <SinglePostTemplate {...entry.toJS().data} />
+))
+CMS.registerPreviewTemplate('carousel-page', ({ entry }) => (
+  <CarouselPageTemplate {...entry.toJS().data} />
 ))

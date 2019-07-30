@@ -50,6 +50,8 @@ export class Navigation extends Component {
           </Link>
           <div className="Nav--Links">
             <NavLink to="/">Форма</NavLink>
+            <NavLink to="/catalogs/">Каталоги</NavLink>
+            <a href="https://instagram.com/zbakirova/">Написать в Директ</a>
 
 {/* 
 

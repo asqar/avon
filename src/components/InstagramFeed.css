@@ -6,7 +6,7 @@
 
 .InstagramFeed--EmptyPost {
   width: calc(100% / 8);
-  padding: calc(50% / 8) 0;
+  padding: calc(50% / 16) 0;
   margin: 0;
   position: relative;
   display: flex;
