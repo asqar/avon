@@ -2,7 +2,7 @@
 template: ContactPage
 slug: ''
 title: Регистрация Avon
-featuredImage: 'https://ucarecdn.com/609959a6-001d-4201-9459-f37f38c55707/'
+featuredImage: 'https://ucarecdn.com/f38c0ddd-d6e4-40e4-801b-cb5b9bfc38ba/'
 subtitle: ' Здесь Вы можете зарегистрироваться в команду Avon.'
 address: 'Петропавловск, Казахстан'
 phone: +7 702 xxx xx 00

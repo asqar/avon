@@ -7,7 +7,7 @@ backend:
 media_library:
   name: uploadcare
   config:
-    publicKey: process.env.NETLIFY_UPLOADCARE_PUBLIC_KEY
+    publicKey: d812f6bb803358faa7ce
     multiple: false
     tabs: 'file camera url facebook gdrive'
     effects: 'crop,rotate,enhance,grayscale'

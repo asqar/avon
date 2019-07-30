@@ -5,11 +5,6 @@ import { serialize } from 'dom-form-serializer'
 
 import './Form.css'
 
-let gCaptchaKey = ''
-if (process.env.NETLIFY_CAPTCHA_KEY) {
-  gCaptchaKey = process.env.NETLIFY_CAPTCHA_KEY
-}
-
 class Form extends React.Component {
   static defaultProps = {
     name: 'Форма',
@@ -166,7 +161,7 @@ class Form extends React.Component {
           </label>
           <div
             className="g-recaptcha"
-            data-sitekey={gCaptchaKey}
+            data-sitekey="6LdHNrAUAAAAAM8Wof1ZY0K9q4fEuRos_tO4nAea"
           />
           {!!subject && <input type="hidden" name="subject" value={subject} />}
           <input type="hidden" name="form-name" value={name} />
