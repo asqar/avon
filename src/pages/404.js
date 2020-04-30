@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import _get from 'lodash/get'
 import AlertTriangle from 'react-feather/dist/icons/alert-triangle'
